@@ -48,7 +48,9 @@ const updatedStudentData = students.map(student=>{
 
 console.log(updatedStudentData);
 
-/*Use filter function to get the students who have 
-passed the course
+/*
+
+Q1. Use filter function to get the students who have passed the course
+Q2. Use filter function to get the students who have failed the course
 
 */
