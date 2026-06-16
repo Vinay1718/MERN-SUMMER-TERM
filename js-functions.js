@@ -1,23 +1,23 @@
 const students = [
     {
-        name:"Abhishek",
+        name: "Abhishek",
         course: "Full Stack Development",
-        marks:[22, 19, 25, 30, 27]
+        marks: [22, 19, 25, 30, 27]
     },
     {
-        name:"Satyarth",
+        name: "Satyarth",
         course: "Full Stack Development",
-        marks:[20, 18, 24, 28, 26]
+        marks: [20, 18, 24, 28, 26]
     },
     {
-        name:"Rohit",
+        name: "Rohit",
         course: "Full Stack Development",
-        marks:[21, 17, 23, 29, 25]
-    }, 
+        marks: [21, 17, 23, 29, 25]
+    },
     {
-        name:"Anjali",
+        name: "Anjali",
         course: "Full Stack Development",
-        marks:[6, 2, 7, 4, 5]
+        marks: [6, 2, 7, 4, 5]
     }
 ]
 
@@ -34,11 +34,11 @@ const students = [
     ...
 ] */
 
-const updatedStudentData = students.map(student=>{
-    const totalMarks = student.marks.reduce((acc, mark)=> {return acc + mark } , 0);
+const updatedStudentData = students.map(student => {
+    const totalMarks = student.marks.reduce((acc, mark) => { return acc + mark }, 0);
     const percentage = ((totalMarks / 150) * 100).toFixed(2);
-    const resultStatus= percentage > 60 ? "Pass" : "Fail";
-    return{
+    const resultStatus = percentage > 60 ? "Pass" : "Fail";
+    return {
         ...student,
         totalMarks,
         percentage,
@@ -54,3 +54,4 @@ Q1. Use filter function to get the students who have passed the course
 Q2. Use filter function to get the students who have failed the course
 
 */
+
