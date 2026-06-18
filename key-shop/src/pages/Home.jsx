@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function Home() {
+function Home( addToCart) {
 
   const [counter, setCounter] = useState(10);
   const [btnText, setBtnText]= useState('Hello');
@@ -36,7 +36,7 @@ function Home() {
           <h3>Cartoon Key Chain</h3>
           <p>Colorful and cute design.</p>
           <strong>₹99</strong>
-          <button className="cartBtn">Add to Cart</button>
+          <button className="cartBtn" onClick={addToCart}>Add to Cart</button>
         </div>
 
 
