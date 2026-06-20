@@ -10,20 +10,19 @@ import Contact from './pages/Contact';
 import './App.css';
 
 function App(){
+  const [cartCount, setCartCount] = useState(0);
 
-  const [cartCount, setCartCount]=useState[0];
-
-  function addToCart(){
-    setCartCount(cartCount + 1);
+  function addToCart()
+  {
+    setCartCount(cartCount +1);
   }
-
   return (
     <BrowserRouter>
       <div className="app">
         <Header cartCount={cartCount} />
         <main>
           <Routes>
-            <Route path="/" element={<Home addToCart={addToCart} />} />
+            <Route path="/" element={<Home addToCart={addToCart}/>} />
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact-us" element={<Contact />} />
