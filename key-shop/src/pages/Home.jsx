@@ -3,7 +3,7 @@ import {useState} from 'react';
 function Home( addToCart) {
 
   const [counter, setCounter] = useState(10);
-  const [btnText, setBtnText]= useState('Hello');
+  const [btnText, setBtnText]= useState('Shop Now');
 
   return (
     <div className="app">
@@ -47,7 +47,7 @@ function Home( addToCart) {
           <h3>Name Key Chain</h3>
           <p>Customized with your name.</p>
           <strong>₹149</strong>
-          <button className="cartBtn">Add to Cart</button>
+          <button className="cartBtn" onClick={addToCart}>Add to Cart</button>
         </div>
 
 
@@ -58,7 +58,7 @@ function Home( addToCart) {
           <h3>Leather Key Chain</h3>
           <p>Premium and classy look.</p>
           <strong>₹199</strong>
-          <button className="cartBtn">Add to Cart</button>
+          <button className="cartBtn" onClick={addToCart}>Add to Cart</button>
         </div>
 
         <div className="card">
@@ -68,7 +68,7 @@ function Home( addToCart) {
           <h3>Avengers Key Chain</h3>
           <p>Your super hero key chain.</p>
           <strong>₹210</strong>
-          <button className="cartBtn">Add to Cart</button>
+          <button className="cartBtn" onClick={addToCart}>Add to Cart</button>
         </div>
       </div>
       
@@ -89,3 +89,5 @@ function Home( addToCart) {
 }
 
 export default Home;
+
+ 
