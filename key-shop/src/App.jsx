@@ -6,16 +6,33 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
 
 import './App.css';
 
 function App(){
-  const [cartCount, setCartCount] = useState(0);
+  // const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
-  function addToCart()
+  function addToCart(product)
   {
-    setCartCount(cartCount +1);
+    // setCartCount(cartCount +1);
+    setCartItems((previousCartItems) =>{
+      const productAlreadyInCart= previousCartItems.find((item)=> item.id==product.id);
+
+      if(productAlreadyInCart)
+      {
+        return previousCartItems.map((item)=>{
+          item.id==product.id ? {...item, quantity: item.quantity +1} : item;
+        });
+      }
+      
+      return [...previousCartItems, {...product, quantity: 1}];
+    })
   }
+
+  const cartCount = cartItems.reduce((total, item)=> total +item.quantity, 0);
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -26,6 +43,7 @@ function App(){
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact-us" element={<Contact />} />
+            <Route path="/cart" element={<Cart cartItems={cartItems}/>} />
           </Routes>
         </main>
         <Footer />
