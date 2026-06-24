@@ -27,7 +27,7 @@ header {
   align-items: center;
   position: sticky;
   top:0;
-  z-index: 1000;
+  z-index: inherit;
 }
 
 header h1 {
@@ -187,8 +187,40 @@ nav ul li a:hover {
   line-height: 1.6;
 }
 
-/* Cart Section */
-.emptyCart{
+/** Cart Page **/
+
+.cartPage{
+max-width: 1200px;
+margin:auto;
+padding:50px 30px;
+}
+
+.cartHeading {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.cartHeading h1{
+  margin:0;
+  color:#111827;
+}
+
+.clearCartBtn{
+  background-color: #dc2626;
+  color: white;
+  border:none;
+  padding:10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.clearCartBtn:hover{
+  background-color: #b91c1c;
+}
+
+.emptyCart {
   min-height: 55vh;
   text-align: center;
   padding-top: 120px;
@@ -199,11 +231,11 @@ nav ul li a:hover {
 }
 
 .continueShoppingBtn{
-  width: fit-content;
-  margin: 25px auto;
+  width:fit-content;
+  margin:25px auto;
   background-color: #111827;
-  color: white;
-  padding: 12px 22px;
+  color:white;
+  padding:12px 22px;
   border-radius: 25px;
   text-decoration: none;
 }

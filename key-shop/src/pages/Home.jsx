@@ -4,27 +4,30 @@ function Home({addToCart}) {
 
   const [counter, setCounter] = useState(10);
   const [btnText, setBtnText]= useState('Hello');
-
   const products = [
     {
+      id:101,
       name: 'Cartoon Key Chain',
       description: 'Colorful and cute design.',
       price: 99,
       image: '/images/shopping.webp'
     },
     {
+       id:102,
       name: 'Name Key Chain',
       description: 'Customized with your name.',
       price: 149,
       image: '/images/name.webp'
     },
     {
+       id:103,
       name: 'Leather Key Chain',
       description: 'Premium and classy look.',
       price: 199,
       image: '/images/leather.jpg'
     },
     {
+       id:104,
       name: 'Avengers Key Chain',
       description: 'Your super hero key chain.',
       price: 210,
@@ -57,16 +60,19 @@ function Home({addToCart}) {
       <div className="productGrid">
 
       { products.map((product, index)=>(
-        <div className="card">
-          <div className="imageBox">
-            <img src={product.image} height="100%" width="100%" />
-          </div>
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <strong>{product.price}</strong>
-          <button className="cartBtn" onClick={addToCart}>Add to Cart</button>
+
+         <div className="card">
+            <div className="imageBox">
+              <img src={product.image} height="100%" width="100%" />
+            </div>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <strong>₹{product.price}</strong>
+            <button className="cartBtn" onClick={()=> addToCart(product)}>Add to Cart</button>
         </div>
-      ))}
+      
+    ))}
+       
 
       </div>
       
