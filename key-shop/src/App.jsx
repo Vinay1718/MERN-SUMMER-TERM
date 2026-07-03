@@ -14,6 +14,7 @@ import './App.css';
 function App() {
   // const [cartCount, setCartCount]=useState(0);
   const [cartItems, setCartItems] = useState([]);
+
   function addToCart(product) {
     if (!product) {
       return;
@@ -22,7 +23,7 @@ function App() {
       const productAlreadyInCart = previousCartItems.find((item) => item.id == product.id);
 
       if (productAlreadyInCart) {
-        
+
         return previousCartItems.map((item) => {
           return item.id == product.id ? { ...item, quantity: item.quantity + 1 } : item;
         });
@@ -32,14 +33,29 @@ function App() {
       return [...previousCartItems, { ...product, quantity: 1 }];
     })
 
-    product.quantity= product.quantity? product.quantity+1 : 1;
+    // Quantity of one product
+    const quantity = cartItems.find(item => item.id === product.id)?.quantity ?? 0;
+
+    console.log(`Quantity of product ${product.id}: ${quantity}`);
+    
+    // Total quantity of all products
+    const cartCount = cartItems.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    // product.quantity = product.quantity ? product.quantity + 1 : 1;
     console.log(product);
-    if (product.stock > 3) {
-      toast.error(`${product.name} not available in stock!`);
+    if (product.stock <quantity +1) {
+      toast.error(`Sorry, ${product.name} is out of stock!`, {
+        id:"cart-toast"
+      });
+      return;
     }
-    else {
-      toast.success(`${product.name} worth ${product.price} added to the cart successfully`); // Template lateral method
-    }
+    // Template lateral method
+    toast.success(`${product.name} worth ${product.price} added to the cart successfully`, {
+      id:"cart-toast"
+    });
     // toast(product.name+' added to the cart successfully!');
 
   }
@@ -75,7 +91,7 @@ function App() {
           reverseOrder={true}
           position="top-center"
           gutter={30}
-          
+
           toastOptions={{
             // Define default options
             className: '',
@@ -95,7 +111,7 @@ function App() {
               },
             },
           }}
-      
+
         />
         <main>
           <Routes>
